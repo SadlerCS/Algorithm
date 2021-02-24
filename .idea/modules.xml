@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../java_project_workplace/com.algorithm/com.algorithm.iml" filepath="$PROJECT_DIR$/../../../java_project_workplace/com.algorithm/com.algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gxcpc4thTraining/gxcpc4thTraining.iml" filepath="$PROJECT_DIR$/gxcpc4thTraining/gxcpc4thTraining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preview/study_DataStructureAndAlgorithm.iml" filepath="$PROJECT_DIR$/preview/study_DataStructureAndAlgorithm.iml" />
+    </modules>
+  </component>
+</project>
