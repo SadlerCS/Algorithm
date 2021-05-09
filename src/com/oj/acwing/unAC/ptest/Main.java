@@ -1,4 +1,4 @@
-package com.oj.acwing.unAC.p;
+package com.oj.acwing.unAC.ptest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,13 +10,21 @@ import java.util.StringTokenizer;
 
 //
 public class Main {
-    static final int N = 100010;
-    static int n;
+
 
     public static void main(String[] args) throws IOException {
         sc.init(System.in);
-        n = sc.nextInt();
-
+        String s = sc.nextLine();
+        char str[] = s.toCharArray();
+        int n = str.length;
+        for (int i = 0; i < n; i++) {
+            int j = i;
+            while (j < n && str[j] != ' ') j++;
+            // 这道题的具体逻辑
+            for (int k = i; k < j; k++) System.out.print(str[k]);
+            if (i != j) System.out.println();
+            i = j;
+        }
 
     }
 
@@ -36,9 +44,9 @@ class sc {
         return tokenizer.nextToken();
     }
 
-    static int nextInt() throws IOException {return Integer.parseInt(next());}
-
     static String nextLine() throws IOException {return reader.readLine();}
+
+    static int nextInt() throws IOException {return Integer.parseInt(next());}
 
     static double nextDouble() throws IOException {return Double.parseDouble(next());}
 

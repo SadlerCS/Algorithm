@@ -1,4 +1,4 @@
-package com.oj.acwing.unAC.p;
+package com.oj.acwing.ac.p796;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,12 +10,24 @@ import java.util.StringTokenizer;
 
 //
 public class Main {
-    static final int N = 100010;
-    static int n;
+    static final int N = 1010;
+    static int n, m, q, a[][] = new int[N][N], s[][] = new int[N][N];
 
     public static void main(String[] args) throws IOException {
         sc.init(System.in);
         n = sc.nextInt();
+        m = sc.nextInt();
+        q = sc.nextInt();
+        for (int i = 1; i <= n; i++) for (int j = 1; j <= m; j++) a[i][j] = sc.nextInt();
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= m; j++) s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + a[i][j];
+        while (q-- > 0) {
+            int x1 = sc.nextInt();
+            int y1 = sc.nextInt();
+            int x2 = sc.nextInt();
+            int y2 = sc.nextInt();
+            System.out.println(s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1]);
+        }
 
 
     }
@@ -37,8 +49,6 @@ class sc {
     }
 
     static int nextInt() throws IOException {return Integer.parseInt(next());}
-
-    static String nextLine() throws IOException {return reader.readLine();}
 
     static double nextDouble() throws IOException {return Double.parseDouble(next());}
 

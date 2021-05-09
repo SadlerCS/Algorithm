@@ -1,4 +1,4 @@
-package com.oj.acwing.unAC.p;
+package com.oj.acwing.ac.p795;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,12 +11,18 @@ import java.util.StringTokenizer;
 //
 public class Main {
     static final int N = 100010;
-    static int n;
+    static int n, m, a[] = new int[N], s[] = new int[N];
 
     public static void main(String[] args) throws IOException {
         sc.init(System.in);
         n = sc.nextInt();
-
+        m = sc.nextInt();
+        for (int i = 1; i <= n; i++) a[i] = sc.nextInt();
+        for (int i = 1; i <= n; i++) s[i] = s[i - 1] + a[i];
+        while (m-- > 0) {
+            int l = sc.nextInt(), r = sc.nextInt();
+            System.out.println(s[r] - s[l - 1]);
+        }
 
     }
 
@@ -37,8 +43,6 @@ class sc {
     }
 
     static int nextInt() throws IOException {return Integer.parseInt(next());}
-
-    static String nextLine() throws IOException {return reader.readLine();}
 
     static double nextDouble() throws IOException {return Double.parseDouble(next());}
 
