@@ -1,48 +1,73 @@
-package com.oj.acwing.ac.p788;
+package com.oj.acwing.unAC.p789;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 
 public class Main {
     static final int N = 100010;
-    static int n, q[] = new int[N], tmp[] = new int[N];
+    static int q[] = new int[N];
 
-    static long merge_sort(int q[], int l, int r) {
-        if (l >= r) return 0;
-        int mid = l + r >> 1;
-        long res = merge_sort(q, l, mid) + merge_sort(q, mid + 1, r);
-        int k = 0, i = l, j = mid + 1;
-        while (i <= mid && j <= r) {
-            if (q[i] <= q[j]) tmp[k++] = q[i++];
-            else {
-                tmp[k++] = q[j++];
-                res += mid - i + 1;
-            }
-        }
-        while (i <= mid) tmp[k++] = q[i++];
-        while (j <= r) tmp[k++] = q[j++];
-        for (i = l, j = 0; i <= r; i++, j++) q[i] = tmp[j];
-        return res;
-    }
 
     //把解决方案放这里
-    public static void solve() {
+    public static void solveCom() {
         FastReader sc = new FastReader();
-        n = sc.nextInt();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
         for (int i = 0; i < n; i++) q[i] = sc.nextInt();
-        System.out.println(merge_sort(q, 0, n - 1));
+        while (m-- > 0) {
+            int x = sc.nextInt();
+            int l = 0, r = n - 1;
+            while (l < r) {
+                int mid = l + r + 1 >> 1;
+                if (q[mid] <= x) l = mid;
+                else r = mid - 1;
+            }
+            if (q[l] != x) {
+                System.out.println("-1 -1");
+                continue;
+            }
+            System.out.print(l + " ");
+            l = 0;
+            r = n - 1;
+            while (l < r) {
+                int mid = l + r >> 1;
+                if (x <= q[mid]) r = mid;
+                else l = mid + 1;
+            }
+            System.out.println(l);
+        }
+
+
+    } // solve fn ends
+
+    public static void solveSub() {
+        FastReader sc = new FastReader();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+
+        }
+
+
     } // solve fn ends
 
 
+    public static void solveScan() {
+        Scanner sc = new Scanner(new BufferedInputStream(System.in));
+        while (sc.hasNext()) {
+
+        }
+
+    }
+
     public static void main(String[] args) throws Exception {
         //调用solve方法,好处是有多个题解可以写n个solve方法
-        solve();
+        solveCom();
+//        solveSub();
+//        solveScan();
 
     }
 

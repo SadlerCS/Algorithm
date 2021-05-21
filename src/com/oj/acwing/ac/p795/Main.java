@@ -1,56 +1,99 @@
 package com.oj.acwing.ac.p795;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
-//
+
 public class Main {
     static final int N = 100010;
-    static int n, m, a[] = new int[N], s[] = new int[N];
+    static int q[] = new int[N];
 
-    public static void main(String[] args) throws IOException {
-        sc.init(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
-        for (int i = 1; i <= n; i++) a[i] = sc.nextInt();
-        for (int i = 1; i <= n; i++) s[i] = s[i - 1] + a[i];
-        while (m-- > 0) {
-            int l = sc.nextInt(), r = sc.nextInt();
-            System.out.println(s[r] - s[l - 1]);
+    //把解决方案放这里
+    public static void solveCom() {
+        FastReader sc = new FastReader();
+        int n = sc.nextInt();
+
+
+    } // solve fn ends
+
+    public static void solveSub() {
+        FastReader sc = new FastReader();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+
+        }
+
+
+    } // solve fn ends
+
+
+    public static void solveScan() {
+        Scanner sc = new Scanner(new BufferedInputStream(System.in));
+        while (sc.hasNext()) {
+
         }
 
     }
 
-}
+    public static void main(String[] args) throws Exception {
+        //调用solve方法,好处是有多个题解可以写n个solve方法
+        solveCom();
+//        solveSub();
+//        solveScan();
 
-class sc {
-    static BufferedReader reader;
-    static StringTokenizer tokenizer;
-
-    static void init(InputStream input) {
-        reader = new BufferedReader(new InputStreamReader(input));
-        tokenizer = new StringTokenizer("");
     }
 
-    static String next() throws IOException {
-        while (!tokenizer.hasMoreTokens()) tokenizer = new StringTokenizer(reader.readLine());
-        return tokenizer.nextToken();
+    //输出
+    static PrintWriter out;
+
+    //输入类
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+            out = new PrintWriter(System.out);
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        BigInteger nextBigInteger() {return new BigInteger(next());}
+
+        BigDecimal nextBigDecimal() {return new BigDecimal(next());}
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
     }
-
-    static int nextInt() throws IOException {return Integer.parseInt(next());}
-
-    static double nextDouble() throws IOException {return Double.parseDouble(next());}
-
-    static long nextLong() throws IOException {return Long.parseLong(next());}
-
-    static boolean nextBoolean() throws IOException {return Boolean.parseBoolean(next());}
-
-    static BigInteger nextBigInteger() throws IOException {return new BigInteger(next());}
-
-    static BigDecimal nextBigDecimal() throws IOException {return new BigDecimal(next());}
 }
